@@ -11,16 +11,16 @@ Version: %{version}
 Release: %{release}
 #gw these must be copied to files/
 Source0: http://go-mono.com/sources/ironpython/%{oname}-%{fversion}.zip
-Source1: http://ftp.heanet.ie/mirrors/www.mysql.com/Downloads/Connector-Net/mysql-connector-net-1.0.7.zip
+#Source1: http://ftp.heanet.ie/mirrors/www.mysql.com/Downloads/Connector-Net/mysql-connector-net-1.0.7.zip
 Source2: http://www.crummy.com/software/BeautifulSoup/download/BeautifulSoup.py
-Source3: http://heanet.dl.sourceforge.net/sourceforge/cheetahtemplate/Cheetah-2.0rc8.tar.gz
+#Source3: http://heanet.dl.sourceforge.net/sourceforge/cheetahtemplate/Cheetah-2.0rc8.tar.gz
 Source4: http://www.dnspython.org/kits/1.5.0/dnspython-1.5.0.tar.gz
 Source5: http://effbot.org/downloads/elementtree-1.2.6-20050316.tar.gz
 Source6: http://www.lag.net/paramiko/download/paramiko-1.7.1.tar.gz
 Source7: http://www.amk.ca/files/python/crypto/pycrypto-2.0.1.tar.gz
 Source8: http://divmod.org/static/projects/pyflakes/pyflakes-0.2.1.tar.gz
-Source9: http://download.cherrypy.org/cherrypy/3.0.1/CherryPy-3.0.1.tar.gz
-Source10: http://heanet.dl.sourceforge.net/sourceforge/sqlalchemy/SQLAlchemy-0.3.10.tar.gz
+#Source9: http://download.cherrypy.org/cherrypy/3.0.1/CherryPy-3.0.1.tar.gz
+#Source10: http://heanet.dl.sourceforge.net/sourceforge/sqlalchemy/SQLAlchemy-0.3.10.tar.gz
 # https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/download.sh
 Source50: https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/build.sh
 Source51: http://fepy.sourceforge.net/license.html
@@ -58,8 +58,9 @@ License.html for additional license information.
 %prep
 %setup -q -T -c -a 100 -a 101 -a 102 -a 103
 mkdir files
-cp %SOURCE0 %SOURCE1 %SOURCE2 %SOURCE3 %SOURCE4 %SOURCE5 %SOURCE6 %SOURCE7 \
- %SOURCE8 %SOURCE9 %SOURCE10 files
+# %SOURCE1 %SOURCE3 %SOURCE9 %SOURCE10
+cp %SOURCE0 %SOURCE2 %SOURCE4 %SOURCE5 %SOURCE6 %SOURCE7 \
+ %SOURCE8  files
 cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
 %patch
