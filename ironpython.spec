@@ -1,7 +1,7 @@
 %define name ironpython
 %define oname IronPython
 %define version 1.1
-%define release 1
+%define release %mkrel 1
 %define fversion %version-Src
 %define ipydir %_prefix/lib/%name
 
