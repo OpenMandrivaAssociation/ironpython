@@ -26,8 +26,8 @@ Source50: https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/build.sh
 Source51: http://fepy.sourceforge.net/license.html
 #gw these are usually checked out by download.py
 Source100: fepy-502.tar.bz2
-Source101: lib-53654.tar.bz2
-Source102: wsgiref-53654.tar.bz2
+Source101: lib-57729.tar.bz2
+Source102: wsgiref-57729.tar.bz2
 Source103: pybench-57719.tar.bz2
 #gw disable svn update
 Patch: build.sh-noupdate.patch
