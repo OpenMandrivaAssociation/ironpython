@@ -1,7 +1,7 @@
 %define name ironpython
 %define oname IronPython
 %define version 1.1
-%define release %mkrel 1
+%define release %mkrel 2
 %define fversion %version-Src
 %define ipydir %_prefix/lib/%name
 
@@ -32,6 +32,8 @@ Source103: pybench-57719.tar.bz2
 #gw disable svn update
 Patch: build.sh-noupdate.patch
 Patch1: build.sh-license.patch
+#gw version number of paramiko is wrong
+Patch2: build.sh-paramiko-version.patch
 License: Shared Source License for IronPython
 Group: Development/Python
 Url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
@@ -62,6 +64,7 @@ cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
 %patch
 %patch1
+%patch2 -p1
 
 %build
 ./build.sh
