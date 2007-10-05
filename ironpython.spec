@@ -70,14 +70,14 @@ chmod +x build.sh
 
 %build
 ./build.sh
-#gw some paths are wrong
-find dist/Lib -name \*.py |xargs xargs perl -pi -e "s^/usr/local/bin/python^%_bindir/ipy^"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p %buildroot%ipydir
-cd dist
-cp -r Lib *.exe *.dll %buildroot%ipydir
+cp -r dist/*  %buildroot%ipydir
+#gw some paths are wrong
+find %buildroot%ipydir -type f | xargs perl -pi -e "s^#! */usr/.*bin/python^#!%_bindir/ipy^"
+rm -f %buildroot%ipydir/*.html
 mkdir -p %buildroot%_bindir
 cat > %buildroot%_bindir/ipy << EOF
 #!/bin/sh
