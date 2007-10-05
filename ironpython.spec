@@ -1,7 +1,7 @@
 %define name ironpython
 %define oname IronPython
 %define version 1.1
-%define release %mkrel 2
+%define release %mkrel 3
 %define fversion %version-Src
 %define ipydir %_prefix/lib/%name
 
@@ -21,11 +21,12 @@ Source7: http://www.amk.ca/files/python/crypto/pycrypto-2.0.1.tar.gz
 Source8: http://divmod.org/static/projects/pyflakes/pyflakes-0.2.1.tar.gz
 #Source9: http://download.cherrypy.org/cherrypy/3.0.1/CherryPy-3.0.1.tar.gz
 #Source10: http://heanet.dl.sourceforge.net/sourceforge/sqlalchemy/SQLAlchemy-0.3.10.tar.gz
+Source10: http://heanet.dl.sourceforge.net/sourceforge/python-irclib/python-irclib-0.4.6.tar.gz
 # https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/download.sh
 Source50: https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/build.sh
 Source51: http://fepy.sourceforge.net/license.html
-#gw these are usually checked out by download.py
-Source100: fepy-502.tar.bz2
+#gw these are usually checked out by build.py
+Source100: fepy-514.tar.bz2
 Source101: lib-57729.tar.bz2
 Source102: wsgiref-57729.tar.bz2
 Source103: pybench-57719.tar.bz2
@@ -60,7 +61,7 @@ License.html for additional license information.
 mkdir files
 # %SOURCE1 %SOURCE3 %SOURCE9 %SOURCE10
 cp %SOURCE0 %SOURCE2 %SOURCE4 %SOURCE5 %SOURCE6 %SOURCE7 \
- %SOURCE8  files
+ %SOURCE8  %SOURCE10 files
 cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
 %patch
