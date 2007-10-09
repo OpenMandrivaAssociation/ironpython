@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p %buildroot%ipydir
 cp -r dist/*  %buildroot%ipydir
 #gw some paths are wrong
-find %buildroot%ipydir -type f | xargs perl -pi -e "s^#! */usr/.*bin/python^#!%_bindir/ipy^"
+find %buildroot%ipydir -type f | xargs perl -pi -e "s^#! */usr/.*bin/python^#!%_bindir/mono %ipydir/ipy.exe^"
 rm -f %buildroot%ipydir/*.html
 mkdir -p %buildroot%_bindir
 cat > %buildroot%_bindir/ipy << EOF
