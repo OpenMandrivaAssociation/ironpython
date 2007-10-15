@@ -91,7 +91,7 @@ cat > %buildroot%_bindir/ipy2 << EOF
 #!/bin/sh
 %_bindir/mono %ipydir/ipy2/ipy.exe "\$@"
 EOF
-cat > %buildroot%_bindir/ipyw << EOF
+cat > %buildroot%_bindir/ipyw2 << EOF
 #!/bin/sh
 %_bindir/mono %ipydir/ipy2/ipyw.exe "\$@"
 EOF
