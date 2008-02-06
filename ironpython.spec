@@ -1,8 +1,8 @@
 %define name ironpython
 %define oname IronPython
 %define version 1.1.1
-%define version2 2.0A5
-%define release %mkrel 1
+%define version2 2.0A7
+%define release %mkrel 2
 %define fversion %version-Src
 %define fversion2 %version2-Src
 %define ipydir %_prefix/lib/%name
@@ -34,10 +34,11 @@ Source102: wsgiref-57729.tar.bz2
 Source103: pybench-57719.tar.bz2
 Source104: pythonnet-90.tar.bz2
 Patch1: build.sh-license.patch
-#gw ipy 1.1.1, ipy2 2.0A5
+#gw ipy 1.1.1
 Patch2: fepy-575-ipy1.1.1.patch
 #gw fix dll map for mono automatic deps
 Patch3: pythonnet-90-dllmap.patch
+Patch4: fepy-575-ipy2.0a7.patch
 License: Shared Source License for IronPython
 Group: Development/Python
 Url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
@@ -74,6 +75,7 @@ chmod +x build.sh
 %patch1
 %patch2 -p1
 %patch3
+%patch4 -p1
 
 %build
 ./build.sh
