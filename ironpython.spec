@@ -1,8 +1,8 @@
 %define name ironpython
 %define oname IronPython
-%define version 1.1
+%define version 1.1.1
 %define version2 2.0A5
-%define release %mkrel 4
+%define release %mkrel 1
 %define fversion %version-Src
 %define fversion2 %version2-Src
 %define ipydir %_prefix/lib/%name
@@ -21,20 +21,23 @@ Source5: http://effbot.org/downloads/elementtree-1.2.6-20050316.tar.gz
 Source6: http://www.lag.net/paramiko/download/paramiko-1.7.1.tar.gz
 Source7: http://www.amk.ca/files/python/crypto/pycrypto-2.0.1.tar.gz
 Source8: http://divmod.org/static/projects/pyflakes/pyflakes-0.2.1.tar.gz
-#Source9: http://download.cherrypy.org/cherrypy/3.0.1/CherryPy-3.0.1.tar.gz
-#Source10: http://heanet.dl.sourceforge.net/sourceforge/sqlalchemy/SQLAlchemy-0.3.10.tar.gz
+#Source9: http://download.cherrypy.org/cherrypy/3.0.1/CherryPy-3.0.2.tar.gz
 Source10: http://heanet.dl.sourceforge.net/sourceforge/python-irclib/python-irclib-0.4.6.tar.gz
+Source11: http://gnosis.cx/download/Gnosis_Utils.More/Gnosis_Utils-1.2.2.tar.gz
 # https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/download.sh
 Source50: https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/build.sh
 Source51: http://fepy.sourceforge.net/license.html
-#gw these are usually checked out by build.py
-Source100: fepy-535.tar.bz2
+#gw these are usually checked out by update.py
+Source100: fepy-575.tar.bz2
 Source101: lib-57729.tar.bz2
 Source102: wsgiref-57729.tar.bz2
 Source103: pybench-57719.tar.bz2
-#gw disable svn update
-Patch: build.sh-noupdate.patch
+Source104: pythonnet-90.tar.bz2
 Patch1: build.sh-license.patch
+#gw ipy 1.1.1, ipy2 2.0A5
+Patch2: fepy-575-ipy1.1.1.patch
+#gw fix dll map for mono automatic deps
+Patch3: pythonnet-90-dllmap.patch
 License: Shared Source License for IronPython
 Group: Development/Python
 Url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
@@ -44,6 +47,9 @@ BuildRequires: mono-devel
 BuildRequires: subversion
 BuildRequires: nant
 Requires: mono
+Requires: python-base
+#gw we don't want a dep on lib64python
+%define _requires_exceptions lib.*python
 
 %description
 IronPython is the code name of the new implementation of the Python
@@ -58,15 +64,16 @@ IronPython Community Edition, see http://fepy.sourceforge.net/ and read
 License.html for additional license information.
 
 %prep
-%setup -q -T -c -a 100 -a 101 -a 102 -a 103
+%setup -q -T -c -a 100 -a 101 -a 102 -a 103 -a 104
 mkdir files
-# %SOURCE3 %SOURCE9 %SOURCE10
+# %SOURCE3 %SOURCE9 
 cp %SOURCE1 %SOURCE0 %SOURCE2 %SOURCE4 %SOURCE5 %SOURCE6 %SOURCE7 \
- %SOURCE8  %SOURCE10 files
+ %SOURCE8  %SOURCE10 %SOURCE11 files
 cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
-%patch
 %patch1
+%patch2 -p1
+%patch3
 
 %build
 ./build.sh
