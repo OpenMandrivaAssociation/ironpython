@@ -1,8 +1,8 @@
 %define name ironpython
 %define oname IronPython
 %define version 1.1.1
-%define version2 2.0A7
-%define release %mkrel 2
+%define version2 2.0B1
+%define release %mkrel 4
 %define fversion %version-Src
 %define fversion2 %version2-Src
 %define ipydir %_prefix/lib/%name
@@ -28,17 +28,14 @@ Source11: http://gnosis.cx/download/Gnosis_Utils.More/Gnosis_Utils-1.2.2.tar.gz
 Source50: https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/build.sh
 Source51: http://fepy.sourceforge.net/license.html
 #gw these are usually checked out by update.py
-Source100: fepy-575.tar.bz2
+Source100: fepy-r583.tar.bz2
 Source101: lib-57729.tar.bz2
 Source102: wsgiref-57729.tar.bz2
-Source103: pybench-57719.tar.bz2
-Source104: pythonnet-90.tar.bz2
+Source103: pybench-r62559.tar.bz2
+Source104: pythonnet-r99.tar.bz2
 Patch1: build.sh-license.patch
-#gw ipy 1.1.1
-Patch2: fepy-575-ipy1.1.1.patch
 #gw fix dll map for mono automatic deps
 Patch3: pythonnet-90-dllmap.patch
-Patch4: fepy-575-ipy2.0a7.patch
 License: Shared Source License for IronPython
 Group: Development/Python
 Url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
@@ -73,9 +70,7 @@ cp %SOURCE1 %SOURCE0 %SOURCE2 %SOURCE4 %SOURCE5 %SOURCE6 %SOURCE7 \
 cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
 %patch1
-%patch2 -p1
 %patch3
-%patch4 -p1
 
 %build
 ./build.sh
