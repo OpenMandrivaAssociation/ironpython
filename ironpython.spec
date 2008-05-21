@@ -1,10 +1,11 @@
 %define name ironpython
 %define oname IronPython
-%define version 1.1.1
-%define version2 2.0B1
-%define release %mkrel 4
-%define fversion %version-Src
-%define fversion2 %version2-Src
+%define version1 1.1.1
+%define prerel B1
+%define version 2.0%prerel
+%define release %mkrel 0.%prerel.1
+%define fversion %version1-Src
+%define fversion2 %version-Src
 %define ipydir %_prefix/lib/%name
 
 Summary: Python for .NET/Mono
@@ -108,8 +109,24 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.html
 %attr(755,root,root) %_bindir/*
 %dir %ipydir/
-%ipydir/ipy
-%ipydir/ipy2
+%dir %ipydir/ipy
+%dir %ipydir/ipy/DLLs
+%ipydir/ipy/DLLs/Python.Runtime.dll*
+%ipydir/ipy/IronMath.dll
+%ipydir/ipy/IronPython.dll
+%ipydir/ipy/Lib
+%ipydir/ipy/ipy.exe
+%ipydir/ipy/ipyw.exe
+%dir %ipydir/ipy2
+%dir %ipydir/ipy2/DLLs
+%ipydir/ipy2/DLLs/Python.Runtime.dll*
+%ipydir/ipy2/IronPython.Modules.dll
+%ipydir/ipy2/IronPython.dll
+%ipydir/ipy2/IronPythonTest.dll
+%ipydir/ipy2/Lib
+%ipydir/ipy2/Microsoft.Scripting.dll
+%ipydir/ipy2/ipy.exe
+%ipydir/ipy2/ipyw.exe
 %ipydir/Lib
 %ipydir/pybench
 %ipydir/pyflakes
