@@ -3,7 +3,7 @@
 %define version1 1.1.1
 %define prerel B1
 %define version 2.0%prerel
-%define release %mkrel 0.%prerel.1
+%define release %mkrel 2.%prerel.1
 %define fversion %version1-Src
 %define fversion2 %version-Src
 %define ipydir %_prefix/lib/%name
