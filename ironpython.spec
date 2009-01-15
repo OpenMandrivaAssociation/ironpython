@@ -1,9 +1,8 @@
 %define name ironpython
 %define oname IronPython
 %define version1 1.1.1
-%define prerel B1
-%define version 2.0%prerel
-%define release %mkrel 2.%prerel.1
+%define version 2.0
+%define release %mkrel 3
 %define fversion %version1-Src
 %define fversion2 %version-Src
 %define ipydir %_prefix/lib/%name
@@ -29,20 +28,21 @@ Source11: http://gnosis.cx/download/Gnosis_Utils.More/Gnosis_Utils-1.2.2.tar.gz
 Source50: https://fepy.svn.sourceforge.net/svnroot/fepy/IPCE/build.sh
 Source51: http://fepy.sourceforge.net/license.html
 #gw these are usually checked out by update.py
-Source100: fepy-r583.tar.bz2
+Source100: fepy-r599.tar.bz2
 Source101: lib-57729.tar.bz2
 Source102: wsgiref-57729.tar.bz2
 Source103: pybench-r62559.tar.bz2
-Source104: pythonnet-r99.tar.bz2
+Source104: pythonnet-r100.tar.bz2
+Patch: build.sh-version.patch
 Patch1: build.sh-license.patch
 #gw fix dll map for mono automatic deps
-Patch3: pythonnet-90-dllmap.patch
+Patch3: pythonnet-99-dllmap.patch
 License: Shared Source License for IronPython
 Group: Development/Python
 Url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
-BuildRequires: mono-devel
+BuildRequires: mono-devel >= 2.2
 BuildRequires: subversion
 BuildRequires: nant
 Requires: mono
@@ -70,8 +70,10 @@ cp %SOURCE1 %SOURCE0 %SOURCE2 %SOURCE4 %SOURCE5 %SOURCE6 %SOURCE7 \
  %SOURCE8  %SOURCE10 %SOURCE11 files
 cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
+%patch -b .ipy2.0
 %patch1
-%patch3
+%patch3 -b .dllmap
+ln -s latest fepy/patches/2.0
 
 %build
 ./build.sh
@@ -96,10 +98,11 @@ cat > %buildroot%_bindir/ipy2 << EOF
 #!/bin/sh
 %_bindir/mono %ipydir/ipy2/ipy.exe "\$@"
 EOF
-cat > %buildroot%_bindir/ipyw2 << EOF
-#!/bin/sh
-%_bindir/mono %ipydir/ipy2/ipyw.exe "\$@"
-EOF
+#gw doesn't exist in 2.0
+#cat > %buildroot%_bindir/ipyw2 << EOF
+##!/bin/sh
+#%_bindir/mono %ipydir/ipy2/ipyw.exe "\$@"
+#EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -122,11 +125,10 @@ rm -rf $RPM_BUILD_ROOT
 %ipydir/ipy2/DLLs/Python.Runtime.dll*
 %ipydir/ipy2/IronPython.Modules.dll
 %ipydir/ipy2/IronPython.dll
-%ipydir/ipy2/IronPythonTest.dll
 %ipydir/ipy2/Lib
 %ipydir/ipy2/Microsoft.Scripting.dll
+%ipydir/ipy2/Microsoft.Scripting.Core.dll
 %ipydir/ipy2/ipy.exe
-%ipydir/ipy2/ipyw.exe
 %ipydir/Lib
 %ipydir/pybench
 %ipydir/pyflakes
