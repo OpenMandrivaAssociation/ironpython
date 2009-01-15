@@ -45,7 +45,7 @@ BuildArch: noarch
 BuildRequires: mono-devel >= 2.2
 BuildRequires: subversion
 BuildRequires: nant
-Requires: mono
+Requires: mono >= 2.2
 Requires: python-base
 #gw we don't want a dep on lib64python
 %define _requires_exceptions lib.*python
