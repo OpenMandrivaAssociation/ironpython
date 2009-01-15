@@ -2,7 +2,7 @@
 %define oname IronPython
 %define version1 1.1.1
 %define version 2.0
-%define release %mkrel 3
+%define release %mkrel 1
 %define fversion %version1-Src
 %define fversion2 %version-Src
 %define ipydir %_prefix/lib/%name
@@ -11,6 +11,7 @@ Summary: Python for .NET/Mono
 Name: %{name}
 Version: %{version}
 Release: %{release}
+Epoch: 1
 #gw these must be copied to files/
 Source0: http://www.ironpython.info/downloads/%{oname}-%{fversion}.zip
 Source1: http://www.ironpython.info/downloads/%{oname}-%{fversion2}.zip
