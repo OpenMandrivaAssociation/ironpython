@@ -1,7 +1,7 @@
 %define name ironpython
 %define oname IronPython
 %define version1 1.1.1
-%define version 2.0
+%define version 2.0.1
 %define release %mkrel 1
 %define fversion %version1-Src
 %define fversion2 %version-Src
@@ -34,6 +34,8 @@ Source101: lib-57729.tar.bz2
 Source102: wsgiref-57729.tar.bz2
 Source103: pybench-r62559.tar.bz2
 Source104: pythonnet-r100.tar.bz2
+#gw rediffed for ironpython 2.0.1
+Source105: patch-exthack
 Patch: build.sh-version.patch
 Patch1: build.sh-license.patch
 #gw fix dll map for mono automatic deps
@@ -74,10 +76,11 @@ chmod +x build.sh
 %patch -b .ipy2.0
 %patch1
 %patch3 -b .dllmap
-ln -s latest fepy/patches/2.0
+cp -r fepy/patches/latest fepy/patches/2.0.1
+cp %SOURCE105 fepy/patches/2.0.1
 
 %build
-./build.sh
+sh ./build.sh
 
 %install
 rm -rf $RPM_BUILD_ROOT
