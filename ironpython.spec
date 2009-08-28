@@ -2,9 +2,9 @@
 %define oname IronPython
 %define version1 1.1.1
 %define version 2.6
-%define release %mkrel 0.beta1.1
+%define release %mkrel 0.beta2.1
 %define fversion %version1-Src
-%define fversion2 %{version}B1-Src
+%define fversion2 %{version}B2-Src
 %define ipydir %_prefix/lib/%name
 
 Summary: Python for .NET/Mono
@@ -35,6 +35,7 @@ Source103: pybench-r74563.tar.bz2
 Source104: pythonnet-r101.tar.bz2
 #gw rediffed for ironpython 2.6B1
 Patch: build.sh-version.patch
+Patch1: fepy-use-readlink.patch
 #gw fix dll map for mono automatic deps
 Patch3: pythonnet-99-dllmap.patch
 License: Shared Source License for IronPython
@@ -64,6 +65,7 @@ License.html for additional license information.
 
 %prep
 %setup -q -T -c -a 100 -a 101 -a 103 -a 104
+ln -s latest fepy/patches/2.6b2
 ln -s lib/wsgiref .
 mkdir files
 # %SOURCE3 %SOURCE9 
@@ -73,6 +75,9 @@ cp %SOURCE50 %SOURCE51 .
 chmod +x build.sh
 %patch -b .ipy2.6b1
 %patch3 -b .dllmap
+cd fepy
+%patch1
+mkdir -p IronPython-%fversion2/Lib
 
 %build
 sh ./build.sh
@@ -128,6 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %ipydir/ipy2/Microsoft.Dynamic.dll
 %ipydir/ipy2/Microsoft.Scripting.dll
 %ipydir/ipy2/Microsoft.Scripting.Core.dll
+%ipydir/ipy2/Microsoft.Scripting.Debugging.dll
 %ipydir/ipy2/ipy.exe
 %ipydir/Lib
 %ipydir/pybench
