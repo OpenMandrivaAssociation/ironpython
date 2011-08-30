@@ -2,7 +2,7 @@
 %define oname IronPython
 %define version1 1.1.1
 %define version 2.6
-%define release %mkrel 0.beta2.1
+%define release %mkrel 0.beta2.2
 %define fversion %version1-Src
 %define fversion2 %{version}B2-Src
 %define ipydir %_prefix/lib/%name
