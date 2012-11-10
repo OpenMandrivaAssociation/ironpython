@@ -1,0 +1,22 @@
+diff -p -up pythonnet/Python.Runtime.dll.config.dllmap pythonnet/Python.Runtime.dll.config
+--- pythonnet/Python.Runtime.dll.config.dllmap	2008-02-06 09:02:23.000000000 +0100
++++ pythonnet/Python.Runtime.dll.config	2009-01-15 21:02:55.000000000 +0100
+@@ -10,12 +10,12 @@ For more information read:
+ 
+ <configuration>
+ 	<dllmap dll="python23" target="libpython2.3.so" os="!windows" />
+-	<dllmap dll="python24" target="libpython2.4.so" os="!windows" />
+-	<dllmap dll="python25" target="libpython2.5.so" os="!windows" />
+-	<dllmap dll="python26" target="libpython2.6.so" os="!windows" />
++	<dllmap dll="python24" target="libpython2.4.so.1.0" os="!windows" />
++	<dllmap dll="python25" target="libpython2.5.so.1.0" os="!windows" />
++	<dllmap dll="python26" target="libpython2.6.so.1.0" os="!windows" />
+ 	<dllmap dll="python23.dll" target="libpython2.3.so" os="!windows" />
+-	<dllmap dll="python24.dll" target="libpython2.4.so" os="!windows" />
+-	<dllmap dll="python25.dll" target="libpython2.5.so" os="!windows" />
+-	<dllmap dll="python26.dll" target="libpython2.6.so" os="!windows" />
++	<dllmap dll="python24.dll" target="libpython2.4.so.1.0" os="!windows" />
++	<dllmap dll="python25.dll" target="libpython2.5.so.1.0" os="!windows" />
++	<dllmap dll="python26.dll" target="libpython2.6.so.1.0" os="!windows" />
+ </configuration>
+ 

@@ -1,0 +1,33 @@
+Index: script/getp
+===================================================================
+--- script/getp	(Revision 615)
++++ script/getp	(Arbeitskopie)
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-BASE=$(dirname $(realpath $0))
++BASE=$(dirname $(readlink -f $0))
+ source $BASE/get-common
+ 
+ LIB=$(dirname $BASE)
+Index: script/gets
+===================================================================
+--- script/gets	(Revision 615)
++++ script/gets	(Arbeitskopie)
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-BASE=$(dirname $(realpath $0))
++BASE=$(dirname $(readlink -f $0))
+ source $BASE/get-common
+ 
+ for name in $@; do
+Index: script/getm
+===================================================================
+--- script/getm	(Revision 615)
++++ script/getm	(Arbeitskopie)
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+-BASE=$(dirname $(realpath $0))
++BASE=$(dirname $(readlink -f $0))
+ source $BASE/get-common
+ 
+ for name in $@; do

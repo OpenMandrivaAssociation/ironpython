@@ -1,0 +1,17 @@
+sources:
+  "BeautifulSoup.py:"	53ff24df0ee54fac7bca16e54619e890cfd38664
+  "build.sh:"	060a31d0e78bb338fd1e71c57cbbcf2e360bb650
+  "dnspython-1.5.0.tar.gz:"	65bec9f891a22bfe2885ebcaa0efc735b5f5194b
+  "elementtree-1.2.6-20050316.tar.gz:"	7d1f6fb534f177623a0482ef192a6170fd21fb1c
+  "fepy-r615.tar.bz2:"	f24c597aa51fee39ff67496c57dd9f60bce1fb77
+  "Gnosis_Utils-1.2.2.tar.gz:"	27ce9ccedd8391dec482522ebc0c0d3ed4e350d6
+  "IronPython-1.1.1-Src.zip:"	556b3fabb556da7fde7ede7723db3bf2e470494b
+  "IronPython-2.6B2-Src.zip:"	7c455a0479a484a001745ac7eefdb6d3fd75e7d7
+  "lib-r262-r74563.tar.bz2:"	5723b1198f5e325c4e8b97b45fed3021be606eb6
+  "license.html:"	2396ea22763ee7d6a81846cd6ad15a16e99f16b9
+  "paramiko-1.7.1.tar.gz:"	0e89fe7ae6dcc91ca271ac06b44a10a9be9c1103
+  "pybench-r74563.tar.bz2:"	315663ce875ba878304f564d721d2fa75df533cd
+  "pycrypto-2.0.1.tar.gz:"	c77cdefdfb06e4749690013a9a9e1600ab14e26f
+  "pyflakes-0.2.1.tar.gz:"	0c286488247a8d3d78e99e7b8839900406d81ee5
+  "python-irclib-0.4.6.tar.gz:"	25d53d92c34d2a4ce39da70ea5ef33a7adce690d
+  "pythonnet-r101.tar.bz2:"	3dd5759717f86e9276f1699c1aa8ac9c0cff5206

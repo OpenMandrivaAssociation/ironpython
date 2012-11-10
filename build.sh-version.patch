@@ -1,0 +1,32 @@
+--- build.sh.ipy2.6b1	2009-08-28 12:49:08.000000000 +0200
++++ build.sh	2009-08-28 12:54:24.000000000 +0200
+@@ -5,7 +5,7 @@
+ DESTDIR=dist
+ 
+ IRON_VERSION=1.1.1
+-IRON2_VERSION=2.0B1
++IRON2_VERSION=2.6B2
+ PY_VERSION=2.4.4
+ ET_VERSION=1.2.6-20050316
+ WSGIREF_PY_VERSION=2.5.1
+@@ -38,10 +38,13 @@
+ 
+ echo 'Unpacking IronPython 2'
+ unzip -q files/IronPython-$IRON2_VERSION-Src.zip
++mkdir -p $IRON2DIR/Lib
+ 
+ IRON2_ALT_VERSION=${IRON2_VERSION/A/a}
+ IRON2_ALT_VERSION=${IRON2_VERSION/B/b}
+-(cd $IRON2DIR; apply ../fepy/patches/$IRON2_ALT_VERSION)
++(cd $IRON2DIR/Src; 
++cp ../../fepy/patches/$IRON2_ALT_VERSION/IronPython.build .
++apply ../../fepy/patches/$IRON2_ALT_VERSION)
+ 
+ echo 'Compiling IronPython 2'
+ nant -f:$IRON2DIR/Src/IronPython.build -D:warn=0
+@@ -165,4 +168,4 @@
+ rm -rf $dir
+ 
+ echo 'Copying license'
+-cp ../website/license.html $DESTDIR/License.html
++cp license.html $DESTDIR/License.html
