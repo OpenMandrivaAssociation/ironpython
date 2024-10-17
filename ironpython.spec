@@ -40,7 +40,7 @@ Patch1: fepy-use-readlink.patch
 Patch3: pythonnet-99-dllmap.patch
 License: Shared Source License for IronPython
 Group: Development/Python
-Url: http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
+Url: https://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
 BuildRequires: mono-devel >= 2.2
